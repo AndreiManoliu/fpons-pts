@@ -37,66 +37,12 @@ By completing this lab, you will achieve the following objectives:
 
 **Some regions don't offer all the models. See the region for each pretrained model to find out which models are available in a region near you. [Oracle Generative AI Overview](https://docs.oracle.com/en-us/iaas/Content/generative-ai/overview.htm)**
 
-1. Click the hamburger icon (≡) at the top left corner of the page.
+A Livelabs compartment was created in the workshop provivioning stage. You can seve the Compartment OCID from the Longin Info Page.
 
-2. Click Identity & Security. Hover over Identity and click the Compartment submenu item.
-![alt text](images/15-identity-compartments.png)
-
-3. Click Create Compartment.
-![alt text](images/16-create-compartment.png)
-
-4. Enter the following information in the corresponding fields or use your own names:
-    * **Name**: PROD
-    * **Description**: Compartment for PROD assets
- ![alt text](images/17-create-compartment2.png)
-
-5. Click Create to complete the process.
-6. Save the compartment OCID for later use.
-![alt text](images/compartmentsave.png)
+ ![](images/Compartment_OCID.jpg " ")
 
 
-  Please create a group and title it ProdObjectManagers. The members of the ProdObjectManagers group will require the ability to list the buckets in the compartment and manage any objects in these buckets.
-
-7. Add the following statements to allow the respective policy actions:
-    * Allow group ProdObjectManagers to read buckets in compartment PROD
-    * Allow group ProdObjectManagers to manage objects in compartment PROD
-8. Click Create to complete the process.
-    ![Policies](/images/policyconfiguration.png)
-
-
-## Task 2: Create policy to enable access to OCI GenAI
-
-Oracle's GenAI service is an LLM service from Oracle Cloud Infrastructure (OCI). The GenAI service provides access to several LLMs that you can pick from.
-
-Create an OCI policy to enable access to OCI GenAI service.
-Create a policy that will allow you to use OCI GenAI within your previously defined compartment. Make sure your policy uses the compartment where your database is deployed. The policy will be necessary for the database to interact with OCI Generative AI.
-
-1. From the Console, open the Navigation menu and click Identity & Security. Under Identity, click Policies. 
-
-2. Click on Create policy and paste the following into the appropriate fields:
-
-Note: Slide the Show manual editor control to display the text field in order to paste the policy.
-
-Name: PublicGenAI
-
-Description: Public Gen AI Policy
-
-Compartment: select your own compartment
-
-  ```
-  <copy>
-  Policy: allow group <group name> to manage generative-ai-family in compartment <your compartment>
-  </copy>
-  ```
-
-3. Click Create.
-
- ![](images/create-policy.png " ")
-
-Note: This policy allows any database in the specified compartment to access OCI Generative AI service. In a production environment, ensure your policy's scope is minimally inclusive.
-
-
-## Task 3: Save User OCID and Create API Keys
+## Task 2: Save User OCID and Create API Keys
 
 
 1. Click the profile icon in the top right of your OCI page, and click My Profile.
@@ -104,38 +50,32 @@ Note: This policy allows any database in the specified compartment to access OCI
 2. Save the user OCID for later use.
 ![alt text](images/ocidsave.png)
 
-## Task 4: Create OCI API Key
+## Task 3: Create OCI API Key
 
-1. Select API KEYS under the resources section and add api key.
+1. Select Tokens and keys tab and add api key.
     ![alt text](images/addapikey.png)
-2. Click on download the private key and public key.
+2. Click on Generate API key pair and download the private key and public key.
     ![alt text](images/apikeyadd.png)
 3. Save the contents of the private key in a separate document.
 4. View the configuration file and select the copy button and save it in a separate document for later use.
     ![alt text](images/saveconfig.png)
 5. Go ahead and close the tab after you have saved the contents.
 
-## Task 5: Grab Your Parent Tenancy OCID
 
-1. Type tenancies in the OCI search bar, click the result, and then the tenancy name.
-    ![alt text](images/tenancysearch.png)
-2. Copy the tenancy OCID and save it in a separate document for later use.
-    ![alt text](images/copytenancyid.png)
-
-
-## Task 6: Create a Bucket
+## Task 4: Create a Bucket
 
 
 In Oracle Object Storage, a bucket is a container for storing objects. To access a bucket through the Oracle Cloud Infrastructure REST APIs, complete the following identity management tasks using the Oracle Cloud Infrastructure console and an account that has administrative rights within the tenancy (the root compartment).
 
 1. Log in to the Oracle Cloud Infrastructure console as an administrator.
-2. Click the hamburger icon (≡), select Object Storage, and click Object Storage.
-3. Ensure the PROD compartment is selected.
+2. Click the hamburger icon (≡), select  Storage, and under the Object STorage & Archive Storage clike on Buckets.
+![alt text](images/StorageMenu.png)
+
+3. Select your Compartment. You may have to drill in (click “+”) to see your compartment under LiveLabs.
 ![alt text](images/createbucket.png)
 4. Click Create Bucket and provide the following information in the corresponding fields:
     * **Bucket Name**: Enter `apex_file_storage`, for example.
     * **Storage Tier**: Select Standard.
-    * **Emit Object Events**: Uncheck this option.
     * **Encryption**: Select Encrypt Using Oracle Managed Keys.
 ![alt text](images/createbucketconfig.png)
 5. Click Create Bucket to complete the process.
@@ -143,12 +83,15 @@ In Oracle Object Storage, a bucket is a container for storing objects. To access
 
 ## Task 7: Create a Pre-Authenticated Request (PAR)
 
-1. Click Create Pre-Auth Request on the resources section from the newly created bucket.
+1. Click on the newly created bucket go to the Management tab and click on Create Pre-Auth Request.
 ![alt text](images/createpreauth.png)
-2. Name the bucket and permit object reads and writes, enabling object listing.
+2. Name the bucket and permit object reads and writes, 
+3. Enabling object listing.
 3. Set the expiry date for the PAR to a time far in the future.
-4. Click Create and save the pre-auth request URL in a document for later use.
+4. Click Create 
 ![alt text](images/copypreauth.png)
+5. Save the pre-auth request URL in a document for later use.
+![alt text](images/copypreauth2.png)
 
 ## Summary
 
@@ -158,5 +101,5 @@ You may now [proceed to the next lab](#next).
 
 ## Acknowledgements
 
-* **Authors** - Blake Hendricks, Milton Wan
-* **Last Updated By/Date** -  Blake Hendricks, October 2024
+* **Authors** - Blake Hendricks, Milton Wan, Andrei Manoliu
+* **Last Updated By/Date** -  Andrei Manoliu, October 2025

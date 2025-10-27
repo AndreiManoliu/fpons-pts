@@ -30,7 +30,7 @@ In this Oracle Live Labs workshop, participants will develop an advanced APEX ap
 ## Key Components
 
 1. **Oracle APEX Application**: A low-code development platform for building scalable, secure enterprise apps.
-2. **Oracle Autonomous Database 23ai**: A fully managed, self-driving database service optimized for data warehousing and transaction processing.
+2. **Oracle Autonomous Database 26ai**: A fully managed, self-driving database service optimized for data warehousing and transaction processing.
 3. **Oracle Cloud Object Storage**: A secure, scalable, and cost-effective storage solution for unstructured data.
 
 ## Benefits
@@ -45,7 +45,7 @@ This lab provides a hands-on experience with Oracle's cutting-edge cloud technol
 
 See below for more information on Oracle Database 23ai and Oracle AI Vector Search
 
-* [Oracle Database 23ai Documentation](https://docs.oracle.com/en/database/oracle/oracle-database/)
+* [Oracle Database 26ai Documentation](https://docs.oracle.com/en/database/oracle/oracle-database/)
 * [Oracle AI Vector Search User's Guide](https://docs.oracle.com/en/database/oracle/oracle-database/23/vecse/index.html)
 * [Oracle AI Vector Search Blog](https://blogs.oracle.com/database/post/oracle-announces-general-availability-of-ai-vector-search-in-oracle-database-23ai)
 
@@ -53,5 +53,5 @@ You may now [proceed to the next lab](#next).
 
 ## Acknowledgements
 
-* **Authors** - Blake Hendricks, Vijay Balebail, Milton Wan
-* **Last Updated By/Date** -  July 2024
+* **Authors** - Blake Hendricks, Vijay Balebail, Milton Wan, Andrei Manoliu
+* **Last Updated By/Date** -  Andrei Manoliu, October 2025
