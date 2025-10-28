@@ -24,13 +24,11 @@ Before we dive into the procedure, make sure you have the following:
 1. **Oracle Cloud Account**: You need an active Oracle Cloud account with access to Oracle Object Storage and Oracle Autonomous Database.
 2. **Object Storage Bucket**: Create a bucket in Oracle Object Storage and upload the files you want to download into Oracle ADB.
 3. **Credentials**: Ensure you have the necessary credentials (access key and secret key) to access Oracle Object Storage.
-4. **Oracle Autonomous Database 23ai**: Make sure you have an Oracle Autonomous Database 23ai
+4. **Oracle Autonomous Database 26ai**: Make sure you have an Oracle Autonomous Database 26ai
 
-## Task 1: Login to Oracle Cloud
 
-1. From your browser login into Oracle Cloud
 
-## Task 2: Provision Autonomous Database
+## Task 1: Provision Autonomous Database
 
    Provision the Autonomous Transaction Processing Database with the steps below.
 
@@ -69,12 +67,12 @@ Before we dive into the procedure, make sure you have the following:
 12. Click Create Autonomous Database.
 
 
-    Your console will show that ADW is provisioning. This will take about 2 or 3 minutes to complete.
+    Your console will show that Autonomous Database is provisioning. This will take about 2 or 3 minutes to complete.
 
     You can check the status of the provisioning in the Work Request.
 
 
-## Task 3: Create a Database User and Grant Necessary Privileges
+## Task 2: Create a Database User and Grant Necessary Privileges
 
 Next head back to your ADB console, and select Database Actions and then SQL. Log in as ADMIN. This will open up an editor for us to perform statements.
 ![alt text](images/sqldev.png)
@@ -144,7 +142,7 @@ END;
 ```
 
 
-## Task 4: Create the credential for ADB to access OCI GenAI Service
+## Task 3: Create the credential for ADB to access OCI GenAI Service
 
 
 
@@ -203,9 +201,9 @@ end;
 
 
 
-## Task 5: Download ONNX embedding model Using `DBMS_CLOUD.GET_OBJECTS`
+## Task 4: Download ONNX embedding model Using `DBMS_CLOUD.GET_OBJECTS`
 
-Now log in as VECTOR or `<your_database_user>`, use the `DBMS_CLOUD.GET_OBJECTS` procedure to download the ONNX embedding model files from the Oracle Object Storage bucket into Oracle ADB.  You will download two different models.
+Now log in as VECTOR or `<your_database_user>`, use the `DBMS_CLOUD.GET_OBJECTS` procedure to download the ONNX embedding model files from the Oracle Object Storage bucket into Oracle ADB.  
 
 Copy this statement and replace with your username and password for Oracle Cloud.
 
@@ -230,7 +228,7 @@ CREATE DIRECTORY staging AS 'stage';
 </copy>
 ```
 
-Run to get the onnx models.
+Run to get the onnx model.
 
 ```sql
 <copy>
@@ -267,7 +265,7 @@ END;
 ```
 
 
-## Task 6: Verify the File in Oracle ADB
+## Task 5: Verify the File in Oracle ADB
 
 
 After downloading the file, you can verify its existence in Oracle ADB by listing the contents of the directory.
@@ -281,9 +279,9 @@ SELECT * FROM TABLE(DBMS_CLOUD.LIST_FILES('staging'));
 This query will show you the files present in the specified directory, ensuring that your file has been successfully downloaded.
 
 
-## Task 9: Load the ONNX Files into the Database
+## Task 6: Load the ONNX Files into the Database
 
-Once the ONNX files are downloaded and verified, you can load them into the database using DBMS\_VECTOR.LOAD\_ONNX\_MODEL. This step involves loading the models from the downloaded files and configuring them for use in Oracle ADB.  
+Once the ONNX file is downloaded and verified, you can load it into the database using DBMS\_VECTOR.LOAD\_ONNX\_MODEL. This step involves loading the model from the downloaded files and configuring them for use in Oracle ADB.  
 
 
 ```sql
@@ -302,11 +300,11 @@ END;
 </copy>
 ```
 
-This code loads two ONNX models into the Oracle ADB, making them available. The json configuration specifies how the models should handle input and output data.
+This code loads the ONNX model into the Oracle ADB, making it available. The json configuration specifies how the model should handle input and output data.
 
 By just changing the model, you will have different vectors for the same document. Each of the models are designed to search the vectors and get the best match according to their algorithms.  For example Tinybert has 128 dimensions while all-MiniL2-v2 has 384 dimensions.  Usually, the greater the number of dimensions, the higher the quality of the vector embeddings.  A larger number of vector dimensions also tends to result in slower performance.   You should choose an embedding model based on quality first and then consider the size and performance of the vector embedding model.  You may choose to use larger vectors for use cases where accuracy is paramount and smaller vectors where performance is the most important factor.
 
-To verify the model exists in database run the following statement.
+To verify if the model exists in database run the following statement.
 
 ```sql
 <copy>
@@ -317,7 +315,7 @@ To verify the model exists in database run the following statement.
 
 ## Summary
 
-In this lab we granted privileges to your database user to run the needed PLSQL procedures and functions. We created objects to authenticate to LLM services.  We also downloaded embedding models from Oracle Object Storage using DBMS\_CLOUD.GET\_OBJECTS and loaded them into Oracle Autonomous Database with DBMS\_VECTOR.LOAD\_ONNX\_MODEL.
+In this lab we granted privileges to your database user to run the needed PLSQL procedures and functions. We created objects to authenticate to LLM services.  We also downloaded an embedding model from Oracle Object Storage using DBMS\_CLOUD.GET\_OBJECTS and loaded into Oracle Autonomous Database with DBMS\_VECTOR.LOAD\_ONNX\_MODEL.
 
 You may now [proceed to the next lab](#next).
 

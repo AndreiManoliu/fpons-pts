@@ -23,7 +23,7 @@ By the end of this lab, users will be able to:
 
 ## Application Description
 
-In this Oracle Live Labs workshop, participants will develop an advanced APEX application that integrates the Retrieval Augmented Generation (RAG) model with Oracle's cutting-edge AI and database technologies. Utilizing the ONNX framework and AI Vector capabilities within Oracle Autonomous Database 23AI, this application revolutionizes document management by enabling secure storage, vectorization, and advanced querying of documents stored in Oracle Cloud Object Storage. Users will interact with the application to ask complex questions, receiving precise, context-aware responses based on the vectorized contents of the documents they want to interact with. This workshop provides a deep dive into Oracle’s AI-driven capabilities, equipping participants with the skills to build next-generation applications that merge AI with enterprise data management for enhanced efficiency, security, and insight.
+In this Oracle Live Labs workshop, participants will develop an advanced APEX application that integrates the Retrieval Augmented Generation (RAG) model with Oracle's cutting-edge AI and database technologies. Utilizing the ONNX framework and AI Vector capabilities within Oracle Autonomous AI Database 26AI, this application revolutionizes document management by enabling secure storage, vectorization, and advanced querying of documents stored in Oracle Cloud Object Storage. Users will interact with the application to ask complex questions, receiving precise, context-aware responses based on the vectorized contents of the documents they want to interact with. This workshop provides a deep dive into Oracle’s AI-driven capabilities, equipping participants with the skills to build next-generation applications that merge AI with enterprise data management for enhanced efficiency, security, and insight.
 
 ![alt text](images/ai-vector-search-apex-adb.png)
 
@@ -43,7 +43,7 @@ This lab provides a hands-on experience with Oracle's cutting-edge cloud technol
 
 ## Learn More
 
-See below for more information on Oracle Database 23ai and Oracle AI Vector Search
+See below for more information on Oracle Database 26ai and Oracle AI Vector Search
 
 * [Oracle Database 26ai Documentation](https://docs.oracle.com/en/database/oracle/oracle-database/)
 * [Oracle AI Vector Search User's Guide](https://docs.oracle.com/en/database/oracle/oracle-database/23/vecse/index.html)

@@ -12,12 +12,9 @@ Estimated Time: 10 minutes
 
 By completing this lab, you will achieve the following objectives:
 
-* **Create and configure a new compartment** for managing resources in OCI.
+* **View the existing compartment** for managing resources in OCI.
   * This involves setting up a logical grouping for your resources to enhance management and organization.
   
-* **Establish policies** to control access and permissions within the compartment.
-  * You will define and implement policies to manage who can access and perform actions on your OCI resources.
-
 * **Set up a user specifically for API key management and interaction.**
   * This step ensures that there is a dedicated user with appropriate permissions for managing and using API keys securely.
 
@@ -33,7 +30,7 @@ By completing this lab, you will achieve the following objectives:
 * **Generate a Pre-Authenticated Request (PAR) for secure bucket access.**
   * You will create a PAR to enable secure and temporary access to your storage bucket without requiring further authentication.
 
-## Task 1: Create an OCI Compartment
+## Task 1: View the OCI Compartment OCID
 
 **Some regions don't offer all the models. See the region for each pretrained model to find out which models are available in a region near you. [Oracle Generative AI Overview](https://docs.oracle.com/en-us/iaas/Content/generative-ai/overview.htm)**
 
