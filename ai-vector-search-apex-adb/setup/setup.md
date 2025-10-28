@@ -78,7 +78,7 @@ In Oracle Object Storage, a bucket is a container for storing objects. To access
 5. Click Create Bucket to complete the process.
 6. To prepare for the successful creation and discovery of the WSM data profile later, upload a dummy file to the `apex_file_storage` bucket now using the Oracle Cloud Infrastructure console.
 
-## Task 7: Create a Pre-Authenticated Request (PAR)
+## Task 5: Create a Pre-Authenticated Request (PAR)
 
 1. Click on the newly created bucket go to the Management tab and click on Create Pre-Auth Request.
 ![alt text](images/createpreauth.png)

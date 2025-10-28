@@ -15,7 +15,7 @@ By following this guide, you will:
 * Login to your APEX instance.
 * Import and configure a pre-built application in APEX.
 
-### Task 1: Set Up Oracle APEX Service
+## Task 1: Set Up Oracle APEX Service
 
 1. Go to your ADB instance you created.
 2. Click on **Database Actions** and select **View All Database Actions**.
@@ -32,7 +32,7 @@ By following this guide, you will:
 8. Enter your desired values for the workspace name, username, and password. Click **Create Workspace**.
 ![alt text](images/dbactionscredentials.png)
 
-### Task 2: Log In to Your APEX Instance
+## Task 2: Log In to Your APEX Instance
 
 1. Sign out from Admin Workspace
 2. Log in to Vector Workspace.
